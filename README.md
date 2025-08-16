@@ -59,7 +59,7 @@ A Model Context Protocol (MCP) server that provides access to OKX trading and po
 
 1. **Access Your OKX Account**:
    - **Existing users**: Go to [OKX.com](https://www.okx.com) and log in
-   - **New users**: Sign up at [https://okx.com/join/16742056](https://okx.com/join/16742056) and complete account verification
+   - **New users**: Sign up at [OKX.com](https://okx.com/join/16742056) and complete account verification
 
 2. **Open API Management**:
    - Navigate directly to: [https://www.okx.com/account/my-api](https://www.okx.com/account/my-api)
