@@ -18,6 +18,13 @@ A Model Context Protocol (MCP) server that provides access to OKX trading and po
 
 ## What You Can Do
 
+### 📱 **See It In Action**
+
+![Claude Desktop with OKX MCP Server](docs/images/claude-summary.png)
+
+*Example: Ask Claude "give me account summary" and instantly get your portfolio breakdown, asset allocation, and trading insights—all from your OKX account data.*
+
+
 **Transform your trading experience with AI-powered portfolio insights.** Once configured, you can ask Claude natural language questions about your OKX account:
 
 ### 💰 **Portfolio Management**
