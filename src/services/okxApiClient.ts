@@ -40,7 +40,6 @@ export class OkxApiClient {
         portfolio.push({
           currency: ccy,
           totalBalance: parseFloat(item.eq),
-          availableBalance: parseFloat(item.availEq),
           frozenBalance: parseFloat(item.frozenBal),
           usdtValue:
             ccy === "USDT"
