@@ -1,10 +1,4 @@
 import { RestClient } from "okx-api";
-import dotenv from "dotenv";
-import path from "path";
-
-dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
-});
 
 const API_KEY = process.env.OKX_API_KEY;
 const API_SECRET = process.env.OKX_API_SECRET;
