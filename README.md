@@ -1,6 +1,10 @@
 # OKX MCP Server
 
 [![npm version](https://img.shields.io/npm/v/okx-mcp.svg)](https://www.npmjs.com/package/okx-mcp)
+[![Downloads](https://img.shields.io/npm/dm/okx-mcp.svg)](https://www.npmjs.com/package/okx-mcp)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Node.js Version](https://img.shields.io/node/v/okx-mcp.svg)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org)
 
 A Model Context Protocol (MCP) server that provides access to OKX trading and portfolio management functionality. This package allows AI assistants to interact with your OKX account to retrieve portfolio information, trading positions, order history, and more.
 
