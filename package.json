@@ -1,14 +1,64 @@
 {
   "name": "okx-mcp",
   "version": "0.1.0",
-  "description": "An xmcp application with tool syntax",
+  "description": "OKX MCP (Model Context Protocol) server providing trading and portfolio management tools",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "okx",
+    "trading",
+    "cryptocurrency",
+    "api",
+    "bitcoin",
+    "crypto",
+    "portfolio",
+    "trading-bot",
+    "ai-assistant",
+    "anthropic",
+    "claude",
+    "chatgpt",
+    "trading-ai",
+    "crypto-ai",
+    "typescript",
+    "nodejs"
+  ],
+  "author": {
+    "name": "Max Barinov",
+    "url": "https://maxbarinov.com",
+    "email": "max.barinov@wrkdn.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/maxbarinov/okx-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxbarinov/okx-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxbarinov/okx-mcp/issues"
+  },
   "engines": {
     "node": ">=20.0.0"
   },
+  "bin": {
+    "okx-mcp": "dist/stdio.js"
+  },
+  "main": "dist/stdio.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "xmcp build",
+    "build": "xmcp build && chmod 755 dist/stdio.js",
     "dev": "xmcp dev",
-    "start": "node dist/http.js"
+    "start": "node dist/stdio.js",
+    "prepublishOnly": "npm run build",
+    "prepack": "npm run build",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "dotenv": "^17.2.1",
