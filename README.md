@@ -86,7 +86,18 @@ A Model Context Protocol (MCP) server that provides access to OKX trading and po
    - ⚠️ **Critical**: The Secret Key is only shown once - save it immediately!
    - These credentials will be used to configure Claude Desktop in the next step
 
-### Step 2: Configure Claude Desktop
+### Step 2: Install Prerequisites
+
+Before configuring Claude Desktop, you need to install Node.js.
+
+#### Install Node.js
+
+**Option 1: Download from Official Website**
+1. Visit [https://nodejs.org](https://nodejs.org/download)
+2. Download the **LTS (Long Term Support)** version for your operating system
+3. Run the installer and follow the setup wizard
+
+### Step 3: Configure Claude Desktop
 
 1. **Open Claude Desktop Settings**:
    - Launch Claude Desktop application
