@@ -60,7 +60,7 @@ Please provide as much information as possible:
 For security-related questions or concerns:
 
 - **Primary Contact**: [me@maxbarinov.com](mailto:me@maxbarinov.com)
-- **GitHub**: [@maxbarinov](https://github.com/maxbarinov)
+- **GitHub**: [@mbarinov](https://github.com/mbarinov)
 - **Response Time**: Within 48 hours for security issues
 
 ---
