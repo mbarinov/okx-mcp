@@ -1,46 +1,132 @@
 # OKX MCP Server
 
+[![npm version](https://img.shields.io/npm/v/okx-mcp.svg)](https://www.npmjs.com/package/okx-mcp)
+
 A Model Context Protocol (MCP) server that provides access to OKX trading and portfolio management functionality. This package allows AI assistants to interact with your OKX account to retrieve portfolio information, trading positions, order history, and more.
+
+**This MCP server is designed with security as a top priority.** Here's what makes it safe to use:
+
+### 🔒 **Built-in Security Features**
+- **Read-Only Access**: The server only requires read permissions - it cannot place trades or withdraw funds
+- **Local Processing**: All data is processed locally on your machine and never stored or transmitted to third parties
+- **No Data Persistence**: Your trading data is never saved to disk or cached permanently
+- **Direct API Communication**: Connects directly to OKX APIs without intermediary servers
+
+## What You Can Do
+
+**Transform your trading experience with AI-powered portfolio insights.** Once configured, you can ask Claude natural language questions about your OKX account:
+
+### 💰 **Portfolio Management**
+- *"What's my current portfolio balance?"*
+- *"Show me my asset allocation"*
+- *"Which coins do I own and how much are they worth?"*
+- *"What's my biggest position by value?"*
+
+### 📊 **Trading Analysis** 
+- *"Show me my open positions with P&L"*
+- *"What orders do I have pending?"*
+- *"Analyze my BTC trading history from last month"*
+- *"How did my ETH trades perform this week?"*
+
+### 🎯 **Smart Insights**
+- *"What's my total unrealized profit/loss?"*
+- *"Which assets have gained the most value?"*
+- *"Give me a summary of my trading activity"*
+- *"How is my portfolio performing today?"*
+
+### 🔍 **Detailed Reporting**
+- *"Create a detailed report of my portfolio"*
+- *"Show me all my completed trades for BTC-USDT"*
+- *"What's my trading volume for this month?"*
+- *"Break down my portfolio by percentage"*
+
+**The AI can provide instant analysis, generate insights, and help you make informed trading decisions—all through simple conversation.**
 
 ## Quick Start
 
-### Using npx (Recommended)
+### Step 1: Create OKX API Credentials
 
-The fastest way to get started is using npx:
+1. **Access Your OKX Account**:
+   - **Existing users**: Go to [OKX.com](https://www.okx.com) and log in
+   - **New users**: Sign up at [https://okx.com/join/16742056](https://okx.com/join/16742056) and complete account verification
 
-```bash
-npx okx-mcp
-```
+2. **Open API Management**:
+   - Navigate directly to: [https://www.okx.com/account/my-api](https://www.okx.com/account/my-api)
 
-### Installation
+3. **Create Your API Key**:
+   - Click **"Create API Key"**
+   - Enter a descriptive name (e.g., "MCP Server")
+   - Create and save a secure **passphrase** (you'll need this later)
 
-```bash
-npm install -g okx-mcp
-```
+4. **Set Read-Only Permissions**:
+   - **Read**: ✅ **Enable** (required for portfolio access)
+   - **Trade**: ❌ **Disable** (not needed for this MCP server)
+   - **Withdraw**: ❌ **Disable** (not needed for this MCP server)
 
-Then run:
+5. **Generate and Copy Credentials**:
+   - Click **"Submit All"** to create the API key
+   - Click **"Show info"** to reveal your credentials
+   - Click **"Copy API key info"** to copy all details
+   
+   **Your credentials will look like this:**
+   ```
+   apikey = "12345678-abcd-1234-efgh-123456789abc"
+   secretkey = "ABCD1234EFGH5678IJKL9012MNOP3456"
+   IP = ""
+   API key name = "MCP Server"
+   Permissions = "Read"
+   ```
 
-```bash
-okx-mcp
-```
+6. **Secure Your Credentials**:
+   - Save the **API Key**, **Secret Key**, and **Passphrase** in a secure location
+   - ⚠️ **Critical**: The Secret Key is only shown once - save it immediately!
+   - These credentials will be used to configure Claude Desktop in the next step
 
-## Setup
+### Step 2: Configure Claude Desktop
 
-Before using this MCP server, you need to configure your OKX API credentials:
+1. **Open Claude Desktop Settings**:
+   - Launch Claude Desktop application
+   - Click on **Settings** (gear icon in the bottom-left corner)
 
-1. **Get OKX API Credentials**: Log into your OKX account and create API credentials with the following permissions:
-   - Read access to account information
-   - Read access to trading data
+2. **Access Developer Section**:
+   - Scroll down to the bottom of the settings panel
+   - Click on **"Developer"** section
 
-2. **Set Environment Variables**: Create a `.env` file in your working directory or set the following environment variables:
+3. **Edit Configuration**:
+   - Click on **"Edit Config"** button
+   - This will open the `claude_desktop_config.json` file in your default text editor
 
-```bash
-OKX_API_KEY=your_api_key_here
-OKX_API_SECRET=your_api_secret_here
-OKX_API_PASSPHRASE=your_api_passphrase_here
-```
+4. **Add OKX MCP Server Configuration**:
+   - Replace the entire file content with this configuration:
+   ```json
+   {
+     "mcpServers": {
+       "okx-mcp": {
+         "command": "okx-mcp",
+         "env": {
+           "OKX_API_KEY": "your_api_key_here",
+           "OKX_API_SECRET": "your_secret_key_here",
+           "OKX_API_PASSPHRASE": "your_passphrase_here"
+         }
+       }
+     }
+   }
+   ```
 
-⚠️ **Security Note**: Never commit your API credentials to version control. Keep your `.env` file private and secure.
+5. **Update Your Credentials**:
+   - Replace `your_api_key_here` with your actual **API Key** from Step 1
+   - Replace `your_secret_key_here` with your actual **Secret Key** from Step 1
+   - Replace `your_passphrase_here` with your actual **Passphrase** from Step 1
+   - **Save the file** and close the text editor
+
+6. **Restart Claude Desktop**:
+   - Close Claude Desktop completely
+   - Reopen the application to load the new configuration
+
+7. **Test the Connection**:
+   - Start a new conversation in Claude Desktop
+   - Try asking: *"Show my portfolio"* or *"Get my account summary"*
+   - If successful, Claude will retrieve and display your OKX account data
 
 ## Available Tools
 
@@ -77,26 +163,6 @@ This MCP server provides the following tools for AI assistants:
   - `begin` (optional): Start timestamp
   - `end` (optional): End timestamp
 - **Returns**: Historical order data with execution details
-
-## Usage with Claude Desktop
-
-To use this MCP server with Claude Desktop, add the following configuration to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "okx-mcp": {
-      "command": "npx",
-      "args": ["okx-mcp"],
-      "env": {
-        "OKX_API_KEY": "your_api_key_here",
-        "OKX_API_SECRET": "your_api_secret_here",
-        "OKX_API_PASSPHRASE": "your_api_passphrase_here"
-      }
-    }
-  }
-}
-```
 
 ## Development
 
@@ -145,13 +211,6 @@ src/
 3. Make your changes
 4. Add tests if applicable
 5. Submit a pull request
-
-## Security Considerations
-
-- **API Permissions**: Only grant the minimum necessary permissions to your OKX API keys
-- **Environment Variables**: Never hardcode API credentials in your code
-- **Network Security**: This MCP server only makes read-only API calls to OKX
-- **Data Handling**: All data is processed locally and not stored persistently
 
 ## License
 
